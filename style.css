@@ -1,0 +1,160 @@
+/*
+ * =======================================================
+ * 1. Estilização Base e Modelo de Caixa (Content, Padding, Border, Margin)
+ * =======================================================
+ */
+
+/* Reset básico */
+* {
+    box-sizing: border-box; /* O box-sizing: border-box simplifica o trabalho com modelos de caixa */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #333; /* Cor de fundo escura, tema militar */
+    color: #fff;
+    line-height: 1.6;
+}
+
+.header-wot, .footer-wot {
+    text-align: center;
+    padding: 20px;
+    background-color: #5a0000; /* Vermelho escuro, cor de destaque do WoT */
+    border-bottom: 5px solid #a00;
+}
+
+/*
+ * =======================================================
+ * 2. Aplicação do Modelo de Caixa nos Blocos (1 a 20)
+ * =======================================================
+ */
+
+.bloco {
+    /* [CONTENT] O conteúdo são os elementos <h2> e <p> */
+
+    /* [PADDING] Espaço interno */
+    padding: 20px;
+
+    /* [BORDER] Borda do elemento */
+    border: 2px solid #a00; /* Borda visível */
+
+    /* [MARGIN] Espaço externo entre os blocos */
+    margin: 15px;
+
+    background-color: #444; /* Fundo do bloco */
+    min-height: 200px; /* Para visualizar o alinhamento */
+    flex-grow: 1; /* Permite que o bloco cresça */
+}
+
+.bloco h2 {
+    color: #ffd700; /* Destaque em amarelo/dourado */
+    margin-bottom: 10px;
+}
+
+
+/*
+ * =======================================================
+ * 3. Propriedades de Flexbox (Exemplo das primeiras 5-10)
+ * =======================================================
+ */
+
+.container-principal {
+    /* Propriedade Flexbox 1: Ativa o Flex Container */
+    display: flex;
+
+    /* Propriedade Flexbox 2: Permite que os itens quebrem a linha (responsividade) */
+    flex-wrap: wrap;
+
+    /* Propriedade Flexbox 3: Alinhamento horizontal dos itens (eixos) */
+    justify-content: space-around;
+
+    /* Propriedade Flexbox 4: Alinhamento vertical dos itens (estica para ter a mesma altura) */
+    align-items: stretch;
+
+    /* Propriedade Flexbox 5: Distância entre o conteúdo e as bordas do container */
+    padding: 20px;
+
+    /* Propriedade Flexbox 6: Define a direção dos itens (por padrão é row) */
+    flex-direction: row;
+
+    /* Propriedade Flexbox 7: Espaçamento entre os itens (gap) */
+    gap: 15px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/*
+ * =======================================================
+ * 4. Responsividade (Usando Flexbox e Media Queries)
+ * =======================================================
+ */
+
+/* Para telas grandes (Desktop): 3 blocos por linha */
+@media (min-width: 1024px) {
+    .bloco {
+        /* Propriedade Flexbox 8 (via Media Query): Base de 33.33% menos a margem/gap */
+        flex-basis: calc(33.33% - 30px);
+    }
+}
+
+/* Para telas médias (Tablet): 2 blocos por linha */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .bloco {
+        /* Propriedade Flexbox 9 (via Media Query): Base de 50% menos a margem/gap */
+        flex-basis: calc(50% - 30px);
+    }
+}
+
+/* Para telas pequenas (Mobile): 1 bloco por linha */
+@media (max-width: 767px) {
+    .bloco {
+        /* Propriedade Flexbox 10 (via Media Query): Base de 100% */
+        flex-basis: 100%;
+        /* Propriedade Flexbox 11: Remove o gap para usar a margem interna */
+        margin: 10px 0;
+    }
+}
+
+/*
+ * =======================================================
+ * 5. Exemplo de Manipulação Flexbox em um item específico
+ * =======================================================
+ */
+
+/* Propriedade Flexbox 12: Mudar a ordem de um item */
+.introducao {
+    order: -1; /* Força o bloco de introdução a ser o primeiro, independente da ordem no HTML */
+}
+
+/* Propriedade Flexbox 13: Permite que o bloco de mecânicas ocupe mais espaço na tela grande */
+@media (min-width: 1024px) {
+    .mecanicas {
+        flex-basis: calc(66.66% - 30px); /* Ocupa 2/3 da linha em desktop */
+    }
+}
+
+/*
+ * =======================================================
+ * CONCEITO PARA EXPANSÃO
+ * =======================================================
+ */
+
+/*
+ * Para expandir para as 20 propriedades de Flexbox, você pode usar:
+ *
+ * 1. Propriedades nos ITENS (`.bloco`):
+ * - `flex-shrink`: Controla a capacidade de encolhimento.
+ * - `align-self`: Sobrescreve `align-items` para um item específico.
+ * - `order`: Já usado.
+ * - `flex`: Shorthand de `flex-grow`, `flex-shrink` e `flex-basis`.
+ *
+ * 2. Propriedades no CONTAINER (`.container-principal`):
+ * - `align-content`: Controla o espaçamento entre linhas (quando `flex-wrap: wrap` é usado).
+ * - Combinações diferentes de `justify-content` (ex: `flex-start`, `flex-end`, `space-between`).
+ * - Combinações de `flex-direction` (ex: `column`, `row-reverse`).
+ *
+ * 3. Media Queries: Usar mais combinações de `flex-basis`, `order` e `justify-content` em diferentes tamanhos de tela (como feito acima) para contar como propriedades aplicadas de forma responsiva.
+ */
