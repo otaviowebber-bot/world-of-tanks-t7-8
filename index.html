@@ -3,123 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Tanks - Guia Completo</title>
+    <title>World of Tanks - Guia Completo Informativo</title>
+    
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Teko:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="header-wot">
-        <h1>GUIA COMPLETO: WORLD OF TANKS</h1>
-        <p>Prepare-se para a batalha!</p>
+    <header class="hero-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('');">
+        <div class="hero-content">
+            <h1 class="hero-title">WORLD OF TANKS</h1>
+            <p class="hero-subtitle">Um Guia Informativo Completo Para Comandantes</p>
+        </div>
+        <a href="#introducao" class="scroll-down-arrow" aria-label="Rolar para introdução">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="none" d="M0 0h24v24H0z"/>
+                <path fill="currentColor" d="M12 16.5l-6-6 1.41-1.41L12 13.67l4.59-4.58L18 10.5l-6 6z"/>
+            </svg>
+        </a>
     </header>
 
-    <main class="container-principal">
-        <section id="bloco-01" class="bloco imagem-inicial">
-            <h2>#imagem inicial do jogo</h2>
-            <p>Seu tanque pronto para o combate!</p>
-            </section>
+    <section id="introducao" class="intro-section">
+        <div class="container">
+            <h2>Bem-vindo ao Campo de Batalha</h2>
+            <p>
+                World of Tanks (WoT) é um jogo de ação online massivo e gratuito (MMO) focado em combates de veículos blindados do meio do século XX (décadas de 1930 a 1960). 
+                Mergulhe em batalhas épicas 15 vs 15, onde a estratégia, o conhecimento do terreno e o trabalho em equipe são tão cruciais quanto o poder de fogo do seu tanque. 
+                Este guia informativo é o seu ponto de partida para dominar as mecânicas complexas e se tornar um comandante lendário.
+            </p>
+        </div>
+    </section>
 
-        <section id="bloco-02" class="bloco introducao">
-            <h2>#introduçao do jogo</h2>
-            <p>World of Tanks é um jogo de tiro online massivo (MMO) baseado em veículos blindados do meio do século XX. Combate em equipe 15 vs 15.</p>
-        </section>
+    <main class="main-content">
+        <div class="container main-grid-container">
 
-        <section id="bloco-03" class="bloco como-jogar">
-            <h2>#como jogar e teclas</h2>
-            <p>WASD para mover, Mouse para mirar e atirar, Shift para mira Sniper.</p>
-        </section>
+            <article class="info-card" id="bloco-03">
+                <header class="card-header">
+                    <h2>Como Jogar e Controles</h2>
+                </header>
+                <div class="card-content">
+                    <p>Dominar o movimento e a mira é o primeiro passo para a vitória. Os controles básicos são intuitivos:</p>
+                    <ul class="styled-list">
+                        <li><strong>WASD:</strong> Mover seu tanque (Frente, Trás, Esquerda, Direita).</li>
+                        <li><strong>Mouse:</strong> Mirar a torre e o canhão.</li>
+                        <li><strong>Botão Esquerdo do Mouse:</strong> Atirar.</li>
+                        <li><strong>Scroll do Mouse (ou Shift):</strong> Alternar para a "Mira Sniper" (zoom).</li>
+                        <li><strong>Teclas 1, 2, 3:</strong> Selecionar tipos de munição.</li>
+                        <li><strong>Teclas 4, 5, 6:</strong> Usar consumíveis (Reparo, Kit Médico, Extintor).</li>
+                        <li><strong>R / F:</strong> Ativar o "Piloto Automático" (Cruise Control).</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-04" class="bloco nacoes">
-            <h2>#mostra todas as nações</h2>
-            <p>URSS, Alemanha, EUA, França, Reino Unido, China, Japão, Tchecoslováquia, Suécia, Polônia e Itália.</p>
-        </section>
+            <article class="info-card" id="bloco-04">
+                <header class="card-header">
+                    <h2>As Nações</h2>
+                </header>
+                <div class="card-content">
+                    <p>O jogo apresenta centenas de veículos de 11 nações principais, cada uma com sua própria árvore tecnológica e filosofia de design:</p>
+                    <ul class="styled-list checkmark-list">
+                        <li>U.R.S.S. (Blindagem robusta e canhões de alto dano)</li>
+                        <li>Alemanha (Canhões precisos e blindagem "caixa")</li>
+                        <li>EUA (Versatilidade, boa depressão de canhão)</li>
+                        <li>França (Carregadores automáticos e alta mobilidade)</li>
+                        <li>Reino Unido (Canhões de tiro rápido ou alto dano)</li>
+                        <li>China (Um misto de designs soviéticos e próprios)</li>
+                        <li>Japão (Pesados com super-blindagem ou médios de suporte)</li>
+                        <li>Tchecoslováquia (Carregadores automáticos rápidos)</li>
+                        <li>Suécia (Caça-tanques com modo cerco e pesados robustos)</li>
+                        <li>Polônia (Pesados com alto dano alfa)</li>
+                        <li>Itália (Sistema de "recarga automática" único)</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-05" class="bloco tiers">
-            <h2>#explicaçao dos tier 1 a 10</h2>
-            <p>Tier I (iniciante) até Tier X (elite). Cada tier representa um salto em poder de fogo e blindagem.</p>
-        </section>
+            <article class="info-card" id="bloco-05">
+                <header class="card-header">
+                    <h2>Entendendo os Tiers (Níveis)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        O progresso no World of Tanks é dividido em 10 Tiers (Níveis), de I a X.
+                    </p>
+                    <p>
+                        <strong>Tier I a III:</strong> A fase de aprendizado. Batalhas rápidas, tanques leves e com pouca blindagem. É aqui que você aprende o básico de mira e movimento.
+                    </p>
+                    <p>
+                        <strong>Tier IV a VII:</strong> O meio do jogo. As classes começam a se definir. Você encontra tanques pesados de verdade, médios versáteis e caça-tanques poderosos. A estratégia se torna crucial.
+                    </p>
+                    <p>
+                        <strong>Tier VIII a X:</strong> O "Endgame". Os veículos de elite. Aqui estão as máquinas mais icônicas e poderosas. As batalhas são altamente estratégicas, e qualquer erro pode custar a partida. O Tier X é o foco do jogo competitivo.
+                    </p>
+                </div>
+            </article>
 
-        <section id="bloco-06" class="bloco colecionador">
-            <h2>#tanks de colecionador</h2>
-            <p>Veículos que foram removidos da Árvore Tecnológica e só podem ser obtidos em eventos ou leilões.</p>
-        </section>
+            <article class="info-card" id="bloco-12">
+                <header class="card-header">
+                    <h2>As 5 Classes de Tanques</h2>
+                </header>
+                <div class="card-content">
+                    <p>Cada tanque pertence a uma das cinco classes, definindo seu papel na batalha:</p>
+                    <dl class="definition-list">
+                        <dt>Tanques Leves (Light Tanks)</dt>
+                        <dd>Os "olhos" da equipe. Focados em velocidade e camuflagem para detectar (spotar) inimigos e flanquear. Seu dano é secundário.</dd>
+                        
+                        <dt>Tanques Médios (Medium Tanks)</dt>
+                        <dd>Os "faz-tudo". Possuem um equilíbrio de mobilidade, poder de fogo e blindagem. São flexíveis e capazes de flanquear ou dar suporte.</dd>
+                        
+                        <dt>Tanques Pesados (Heavy Tanks)</dt>
+                        <dd>A linha de frente. Focados em blindagem espessa e canhões de grosso calibre. Sua função é absorver dano e quebrar as linhas inimigas.</dd>
+                        
+                        <dt>Caça-Tanques (Tank Destroyers - TDs)</dt>
+                        <dd>Os "snipers". Especializados em poder de fogo, geralmente com os canhões de maior penetração e dano do jogo. Podem ter ou não torres.</dd>
+                        
+                        <dt>Artilharia (SPGs)</dt>
+                        <dd>O suporte de longo alcance. Possuem uma visão aérea única e disparam projéteis explosivos (HE) em arco, capazes de atordoar tripulações.</dd>
+                    </dl>
+                </div>
+            </article>
 
-        <section id="bloco-07" class="bloco premium">
-            <h2>#tanks premium e especiais</h2>
-            <p>Tanques que geram mais Créditos e XP, não necessitam de tripulação dedicada e ajudam a treinar tripulações.</p>
-        </section>
+            <article class="info-card" id="bloco-08">
+                <header class="card-header">
+                    <h2>Tipos de Munição</h2>
+                </header>
+                <div class="card-content">
+                    <p>Saber qual projétil usar é vital. Você geralmente carrega 3 tipos:</p>
+                    <dl class="definition-list">
+                        <dt>AP (Armor Piercing)</dt>
+                        <dd>Munição padrão. Custo baixo, boa penetração. Perde penetração com a distância.</dd>
+                        
+                        <dt>APCR (Armor Piercing Composite Rigid)</dt>
+                        <dd>Munição "Premium" (custo em créditos ou ouro). Velocidade de projétil muito alta e maior penetração. Perde mais penetração com a distância que a AP.</dd>
+                        
+                        <dt>HEAT (High-Explosive Anti-Tank)</dt>
+                        <dd>Munição "Premium" alternativa. Penetração muito alta que NÃO se perde com a distância. No entanto, é detida por blindagem espaçada.</dd>
+                        
+                        <dt>HE (High Explosive)</dt>
+                        <dd>Baixa penetração, mas causa dano de explosão (splash). Sempre causa algum dano (mesmo que pouco) se atingir. Eficaz contra tanques sem blindagem e para "resetar" a captura da base.</dd>
+                    </dl>
+                </div>
+            </article>
 
-        <section id="bloco-08" class="bloco municao">
-            <h2>#explicaçao de munição</h2>
-            <p>AP (Básica), APCR (Alta Velocidade), HEAT (Mais Penetração), HE (Dano de Área).</p>
-        </section>
+            <article class="info-card" id="bloco-10">
+                <header class="card-header">
+                    <h2>Equipamentos Essenciais</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Equipamentos são melhorias permanentes (podem ser desmontadas) que você instala no seu tanque (geralmente 3 vagas). Eles melhoram drasticamente o desempenho.
+                    </p>
+                    <p>A "Santíssima Trindade" dos equipamentos para a maioria dos tanques é:</p>
+                    <ul class="styled-list">
+                        <li><strong>Vareta de Recarga (Rammer):</strong> Reduz o tempo de recarga do canhão em 10%. Quase obrigatório.</li>
+                        <li><strong>Estabilizador Vertical (V-Stab):</strong> Reduz a "dispersão" (tamanho da mira) ao mover o tanque e a torre. Permite atirar em movimento com mais precisão.</li>
+                        <li><strong>Ventilação (Vents):</strong> Melhora em 5% todas as habilidades da tripulação, o que afeta tempo de recarga, mira, velocidade, etc.</li>
+                    </ul>
+                    <p>Outros equipamentos populares incluem <strong>Ópticas Revestidas</strong> (aumenta o alcance de visão) e <strong>Endurecimento</strong> (aumenta a vida do tanque e a durabilidade das esteiras).</p>
+                </div>
+            </article>
 
-        <section id="bloco-09" class="bloco consumiveis">
-            <h2># explicação de consumíveis</h2>
-            <p>Kits de Reparo, Kits de Primeiros Socorros, Extintores. Podem ser Pequenos ou Grandes.</p>
-        </section>
+            <article class="info-card" id="bloco-09">
+                <header class="card-header">
+                    <h2>Consumíveis de Batalha</h2>
+                </header>
+                <div class="card-content">
+                    <p>Itens que você usa uma vez por batalha (ou que recarregam) para lidar com emergências. Podem ser Pequenos (uso único) ou Grandes (passivos + uso múltiplo).</p>
+                    <ul class="styled-list">
+                        <li>
+                            <strong>Kit de Reparo (Pequeno/Grande):</strong>
+                            Conserta módulos danificados (ex: esteiras quebradas, canhão danificado). O Grande conserta tudo de uma vez.
+                        </li>
+                        <li>
+                            <strong>Kit de Primeiros Socorros (Pequeno/Grande):</strong>
+                            Cura tripulantes feridos (ex: artilheiro ferido não mira bem). O Grande cura todos de uma vez e dá proteção passiva.
+                        </li>
+                        <li>
+                            <strong>Extintor de Incêndio (Manual/Automático):</strong>
+                            Apaga o fogo. O Automático ativa instantaneamente, salvando muita vida do tanque.
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-10" class="bloco equipamentos">
-            <h2># explicação de equipamentos</h2>
-            <p>Vareta de Recarga, Ventilação, Estabilizador Vertical. Itens permanentes que melhoram atributos.</p>
-        </section>
+            <article class="info-card" id="bloco-11">
+                <header class="card-header">
+                    <h2>Tripulação e Habilidades (Skills)</h2>
+                </header>
+                <div class="card-content">
+                    <p>A tripulação é o "coração" do seu tanque. Uma tripulação 100% é muito superior a uma de 50%. Com o tempo, eles aprendem Habilidades (Skills/Perks).</p>
+                    <p><strong>Funções Comuns:</strong> Comandante, Artilheiro, Motorista, Operador de Rádio, Municiador.</p>
+                    <p><strong>Habilidades Essenciais:</strong></p>
+                    <ul class="styled-list checkmark-list">
+                        <li><strong>Sexto Sentido (Comandante):</strong> OBRIGATÓRIA. Avisa você 3 segundos após ser detectado pelo inimigo.</li>
+                        <li><strong>Reparos (Todos):</strong> Acelera o reparo de módulos (especialmente esteiras).</li>
+                        <li><strong>Irmãos de Armas (BIA) (Todos):</strong> Como a Ventilação, melhora todas as habilidades da tripulação em 5%.</li>
+                        <li><strong>Consciência Situacional (Op. Rádio):</strong> Aumenta seu alcance de visão.</li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="info-card" id="bloco-07">
+                <header class="card-header">
+                    <h2>Tanques Premium e Especiais</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Estes veículos não são pesquisados na árvore tecnológica e são obtidos com ouro (dinheiro real), eventos ou campanhas.
+                    </p>
+                    <p><strong>Vantagens Principais:</strong></p>
+                    <ul class="styled-list">
+                        <li><strong>Geram mais Créditos:</strong> Sua principal função. São a melhor forma de "farmar" a moeda do jogo.</li>
+                        <li><strong>Treinamento de Tripulação:</strong> Você pode usar tripulações da mesma nação e classe em tanques premium sem penalidade, acelerando o treinamento de habilidades.</li>
+                        <li><strong>Não precisam de tripulação própria.</strong></li>
+                        <li><strong>Não são "Pay-to-Win":</strong> Geralmente, tanques premium são balanceados para serem um pouco inferiores ou equivalentes aos seus "irmãos" de linha do mesmo tier.</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-11" class="bloco tripulacao">
-            <h2>#explicçao de tripulação e habilidades</h2>
-            <p>Comandante, Artilheiro, Motorista, Operador de Rádio e Municiador. Cada um tem habilidades específicas (Sexto Sentido, Reparos, etc.).</p>
-        </section>
+            <article class="info-card" id="bloco-06">
+                <header class="card-header">
+                    <h2>Tanques de Colecionador</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Com o tempo, o jogo remove alguns tanques das árvores tecnológicas para simplificá-las. Esses veículos não são excluídos do jogo, mas movidos para uma aba especial na Loja chamada "Colecionáveis".
+                    </p>
+                    <p>
+                        Eles podem ser comprados diretamente por Créditos (a moeda do jogo) assim que você pesquisa o tanque de tier equivalente na árvore principal.
+                    </p>
+                    <p>
+                        Isso permite que jogadores novos se concentrem em linhas de pesquisa mais diretas, enquanto veteranos ainda têm acesso aos veículos clássicos que foram removidos.
+                    </p>
+                </div>
+            </article>
+            
+            <article class="info-card" id="bloco-13">
+                <header class="card-header">
+                    <h2>Mecânicas Especiais de Nações</h2>
+                </header>
+                <div class="card-content">
+                    <p>Algumas linhas de tanques possuem mecânicas únicas que mudam o estilo de jogo:</p>
+                    <dl class="definition-list">
+                        <dt>Canhão Duplo (URSS - Linha ST-II)</dt>
+                        <dd>Permite disparar dois canhões de uma vez para um dano massivo, ou alternar entre eles.</dd>
+                        
+                        <dt>Recarga Automática (Itália - Médios/Pesados)</dt>
+                        <dd>Funciona como um tanque normal, mas se você para de atirar, ele "carrega" um pente (como um autoloader) automaticamente.</dd>
+                        
+                        <dt>Suspensão Hidropneumática (Suécia - TDs/Médios)</dt>
+                        <dd>Permite que o tanque "incline" o chassi, ganhando uma depressão de canhão incrível ao entrar no "Modo Cerco".</dd>
 
-        <section id="bloco-12" class="bloco classes">
-            <h2>#explicaçao das classes (tanque pesado, tanque médio, tanque leve, caça tanque e artilharia)</h2>
-            <p>Pesados (Frontline), Médios (Flexíveis), Leves (Scouts), Caça-Tanques (Snipers), Artilharia (SPG).</p>
-        </section>
+                        <dt>Rodas (França - Leves)</dt>
+                        <dd>Veículos com rodas que atingem velocidades altíssimas (80-90 km/h), mas são difíceis de controlar.</dd>
+                    </dl>
+                </div>
+            </article>
 
-        <section id="bloco-13" class="bloco mecanicas">
-            <h2># explicação das mecânicas especiais...</h2>
-            <p>Canhão Duplo (URSS), Recarga Automática (Itália), Suspensão Hidropneumática (Suécia), etc.</p>
-        </section>
+            <article class="info-card" id="bloco-14">
+                <header class="card-header">
+                    <h2>Modo: Batalhas Aleatórias</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Este é o modo de jogo principal do World of Tanks (PvP). Duas equipes de 15 jogadores se enfrentam em um mapa aleatório.
+                    </p>
+                    <p>Existem três sub-modos principais:</p>
+                    <ul class="styled-list">
+                        <li><strong>Batalha Padrão:</strong> Cada time tem uma base. O objetivo é capturar a base inimiga ou destruir todos os 15 tanques adversários.</li>
+                        <li><strong>Assalto:</strong> Um time ataca e o outro defende uma única base. Os atacantes vencem se capturarem a base ou destruírem todos os defensores.</li>
+                        <li><strong>Encontro:</strong> Existe uma única base neutra no centro do mapa. Ambos os times lutam para capturá-la.</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-14" class="bloco modos-batalha">
-            <h2># modo de jogo batalha aleatória</h2>
-            <p>O modo de jogo padrão, 15 contra 15, com diversos mapas e modos (Assalto, Encontro, Padrão).</p>
-        </section>
+            <article class="info-card" id="bloco-15">
+                <header class="card-header">
+                    <h2>O que é um Clã?</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Um Clã é um grupo organizado de jogadores que jogam juntos. Entrar em um clã ativo é uma das melhores formas de evoluir no jogo.
+                    </p>
+                    <p><strong>Benefícios de um Clã:</strong></p>
+                    <ul class="styled-list checkmark-list">
+                        <li><strong>Pelotões:</strong> Jogar com amigos coordenados por voz (Discord/TS) aumenta drasticamente suas chances de vitória.</li>
+                        <li><strong>Bônus de Créditos e XP:</strong> Clãs podem ativar "Reservas" que dão bônus passivos de créditos e experiência para todos os membros online.</li>
+                        <li><strong>Participação em Modos de Jogo:</strong> Permite o acesso a modos competitivos como Fortalezas e Guerra de Clãs.</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-15" class="bloco cla">
-            <h2>#expliçao de clã</h2>
-            <p>Equipes de jogadores que competem em eventos especiais e campanhas.</p>
-        </section>
+            <article class="info-card" id="bloco-16">
+                <header class="card-header">
+                    <h2>Modo: Fortalezas (Strongholds)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Fortalezas são um modo de jogo específico para Clãs. Cada clã possui uma "base" virtual que pode ser melhorada.
+                    </p>
+                    <p>
+                        Os jogadores do clã participam de "Avanços" ou "Escaramuças" contra outros clãs. Vencer essas batalhas gera "Recursos Industriais".
+                    </p>
+                    <p>
+                        Esses recursos são usados para construir edifícios na Fortaleza, que por sua vez geram as "Reservas" (Bônus de Créditos, XP, etc.) que beneficiam todo o clã. É o principal modo para clãs casuais e semi-competitivos.
+                    </p>
+                </div>
+            </article>
+            
+            <article class="info-card" id="bloco-17">
+                <header class="card-header">
+                    <h2>Campanhas (Missões Pessoais)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        As Campanhas são séries de missões individuais de longa duração, divididas por classe de tanque (Leve, Médio, Pesado, TD, SPG).
+                    </p>
+                    <p>
+                        Completar esses conjuntos de missões (que exigem alto nível de habilidade) concede recompensas exclusivas.
+                    </p>
+                    <p><strong>Recompensas Notáveis:</strong></p>
+                    <ul class="styled-list">
+                        <li><strong>Stug IV</strong> (Campanha 1)</li>
+                        <li><strong>T28 Concept</strong> (Campanha 1)</li>
+                        <li><strong>T-55A</strong> (Campanha 1)</li>
+                        <li><strong>Objeto 260</strong> (Campanha 1 - Tanque de Recompensa Final)</li>
+                        <li><strong>Excalibur</strong> (Campanha 2)</li>
+                        <li><strong>Chimera</strong> (Campanha 2)</li>
+                        <li><strong>Objeto 279 (e)</strong> (Campanha 2 - Um dos tanques mais cobiçados do jogo)</li>
+                    </ul>
+                </div>
+            </article>
 
-        <section id="bloco-16" class="bloco fortalezas">
-            <h2>#fortalezas</h2>
-            <p>Modo de clã onde os jogadores constroem uma base e a defendem ou atacam outras bases.</p>
-        </section>
+            <article class="info-card" id="bloco-18">
+                <header class="card-header">
+                    <h2>Passe de Batalha (Battle Pass)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        O Passe de Batalha é um evento sazonal (dura cerca de 3 meses) que recompensa os jogadores simplesmente por jogarem Batalhas Aleatórias.
+                    </p>
+                    <p>
+                        Você ganha "Pontos de Passe" ao jogar bem, que progridem em uma trilha de recompensas dividida em capítulos.
+                    </p>
+                    <p>
+                        Existe uma trilha de recompensas Gratuita (com ótimos prêmios) e uma trilha Paga (com prêmios ainda melhores, como tanques premium e estilos 3D únicos). É considerado um dos melhores investimentos no jogo.
+                    </p>
+                </div>
+            </article>
 
-        <section id="bloco-17" class="bloco campanhas">
-            <h2>#explicação das campanhas</h2>
-            <p>Séries de missões com recompensas exclusivas, incluindo tanques de elite (Ex: Objeto 279 (e)).</p>
-        </section>
+            <article class="info-card" id="bloco-19">
+                <header class="card-header">
+                    <h2>Modo: Investida (Onslaught)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Investida é o modo de jogo ranqueado e altamente competitivo do World of Tanks, focado em Tier X.
+                    </p>
+                    <p>
+                        As batalhas são 7 vs 7 em mapas menores e com regras especiais (como habilidades de pelotão).
+                    </p>
+                    <p>
+                        Os jogadores progridem através de "Ranks" (de Bronze a Lenda), similar a outros jogos competitivos. O objetivo é testar a habilidade individual e de equipe no mais alto nível, ganhando recompensas exclusivas da temporada.
+                    </p>
+                </div>
+            </article>
 
-        <section id="bloco-18" class="bloco passe-batalha">
-            <h2>#explicação passe de batalha</h2>
-            <p>Sistema de progressão sazonal com recompensas em níveis, incluindo tanques e tripulantes únicos.</p>
-        </section>
+            <article class="info-card" id="bloco-20">
+                <header class="card-header">
+                    <h2>Modo: Linha de Frente (Frontline)</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        Um modo de jogo épico e temporário (geralmente disponível por uma semana de cada vez).
+                    </p>
+                    <p>
+                        As batalhas são massivas: 30 vs 30 em mapas gigantescos (9km²). O modo é focado em veículos de Tier VIII.
+                    </p>
+                    <p>
+                        Os atacantes tentam capturar zonas progressivamente até alcançar e destruir os objetivos finais (Bunkers), enquanto os defensores tentam segurá-los até o tempo acabar. É um modo excelente para farmar créditos e se divertir em um ambiente de larga escala.
+                    </p>
+                </div>
+            </article>
 
-        <section id="bloco-19" class="bloco investida">
-            <h2>#investida</h2>
-            <p>Um modo de clã de alta competitividade com rankings e recompensas sazonais.</p>
-        </section>
+            <article class="info-card" id="bloco-01">
+                <header class="card-header">
+                    <h2>A Garagem</h2>
+                </header>
+                <div class="card-content">
+                    <p>
+                        A Garagem é sua central de comando. É aqui que você vê seus tanques, gerencia tripulações, aplica customizações (pinturas, emblemas) e seleciona o modo de batalha.
+                    </p>
+                    <p>
+                        A aparência da sua garagem muda frequentemente com base em eventos sazonais (Natal, Halloween, aniversários do jogo). É o "lobby" principal do World of Tanks.
+                    </p>
+                </div>
+            </article>
 
-        <section id="bloco-20" class="bloco linha-frente">
-            <h2>#linha de frente</h2>
-            <p>Modo de jogo temporário e massivo, 30 vs 30, em grandes mapas com pontos de captura.</p>
-        </section>
+            <article class="info-card" id="bloco-02">
+                <header class="card-header">
+                    <h2>Economia do Jogo</h2>
+                </header>
+                <div class="card-content">
+                    <p>O jogo opera com várias moedas:</p>
+                    <dl class="definition-list">
+                        <dt>Créditos (Prata)</dt>
+                        <dd>A moeda principal, ganha em batalha. Usada para comprar tanques de linha, equipamentos, consumíveis e reparar.</dd>
+                        
+                        <dt>Ouro (Gold)</dt>
+                        <dd>A moeda premium, comprada com dinheiro real. Usada para comprar tanques premium, tempo de conta premium, e converter XP.</dd>
+
+                        <dt>Títulos (Bonds)</dt>
+                        <dd>Moeda especial ganha em eventos ranqueados, Passe de Batalha e por mérito. Usada para comprar equipamentos "Bounty" (melhorados) e tanques raros.</dd>
+
+                        <dt>Experiência (XP)</dt>
+                        <dd>Usada para pesquisar novos módulos e tanques na árvore tecnológica.</dd>
+                    </dl>
+                </div>
+            </article>
 
 
-        </main>
+        </div> </main>
 
     <footer class="footer-wot">
-        <p>Projeto World of Tanks - Desenvolvido com HTML/CSS (Flexbox)</p>
+        <div class="container">
+            <p>Projeto Informativo World of Tanks.</p>
+            <p>Este é um site não oficial criado por um fã, com o objetivo de fornecer informações de forma clara.</p>
+            <p>Desenvolvido com HTML5, CSS3 (Flexbox e Grid) e muito café.</p>
+        </div>
     </footer>
 
 </body>
