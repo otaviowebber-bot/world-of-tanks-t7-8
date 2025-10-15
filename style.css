@@ -1,46 +1,42 @@
 /* * =======================================================
- * STYLE.CSS - WORLD OF TANKS GUIA
+ * STYLE.CSS - WORLD OF TANKS GUIA (v2.0)
  * =======================================================
  *
  * ÍNDICE:
- * 1.  Variáveis Globais (:root)
- * 2.  Reset e Estilos Base (Body, Typography)
- * 3.  Estilos de Layout (Container, Grid)
- * 4.  Componente: Hero Section (Header)
- * 5.  Componente: Intro Section
- * 6.  Componente: Info Card (Article)
- * 7.  Componente: Listas Estilizadas
- * 8.  Componente: Footer
- * 9.  Animações (Keyframes)
- * 10. Media Queries (Responsividade)
+ * 1.  Variáveis Globais e Reset
+ * 2.  Estilos Base (Body, Tipografia)
+ * 3.  Layout (Container, Grid)
+ * 4.  Componente: Navbar
+ * 5.  Componente: Hero Section
+ * 6.  Componente: Intro Section
+ * 7.  Componente: Info Card
+ * 8.  Componente: Listas Estilizadas
+ * 9.  Componente: Footer
+ * 10. Componente: Botão "Voltar ao Topo"
+ * 11. Animações e Efeitos
+ * 12. Media Queries (Responsividade)
  *
  * =======================================================
 */
 
-
-/* * =======================================================
- * 1. Variáveis Globais (:root)
- * =======================================================
-*/
+/* 1. Variáveis Globais e Reset */
 :root {
     /* Cores */
-    --color-primary: #d64d1e; /* Laranja WoT */
+    --color-primary: #d64d1e;
     --color-primary-dark: #b83c11;
-    --color-background: #121212;  /* Fundo principal escuro */
-    --color-surface: #1e1e1e;     /* Fundo dos cards */
+    --color-background: #121212;
+    --color-surface: #1e1e1e;
     --color-border: #333333;
-    --color-text-primary: #f0f0f0;   /* Texto principal claro */
-    --color-text-secondary: #a0a0a0; /* Texto secundário (parágrafos) */
-    --color-text-headings: #ffffff;  /* Títulos */
-    --color-success: #4CAF50; /* Para listas de "check" */
+    --color-text-primary: #f0f0f0;
+    --color-text-secondary: #a0a0a0;
+    --color-text-headings: #ffffff;
+    --color-success: #4CAF50;
 
     /* Tipografia */
     --font-primary: 'Roboto', sans-serif;
-    --font-headings: 'Teko', sans-serif; /* Fonte estilizada para títulos */
+    --font-headings: 'Teko', sans-serif;
 
     /* Espaçamento */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 32px;
     --spacing-xl: 64px;
@@ -49,59 +45,50 @@
     --border-radius: 8px;
     --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.3);
     --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --transition-speed: 0.3s;
 }
 
-
-/* * =======================================================
- * 2. Reset e Estilos Base
- * =======================================================
-*/
-
-/* Reset básico */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 html {
-    /* Habilita rolagem suave ao clicar em links (ex: seta do hero) */
     scroll-behavior: smooth;
-    /* Melhora a renderização de fontes */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Customização da barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    border: 2px solid var(--color-background);
+}
+
+/* 2. Estilos Base */
 body {
     font-family: var(--font-primary);
     background-color: var(--color-background);
     color: var(--color-text-secondary);
-    line-height: 1.6;
-    font-size: 16px; /* Tamanho base */
+    line-height: 1.7;
+    font-size: 16px;
 }
 
-/* Estilos de Títulos */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     font-family: var(--font-headings);
     color: var(--color-text-headings);
     letter-spacing: 1.1px;
     text-transform: uppercase;
     font-weight: 700;
     margin-bottom: var(--spacing-md);
-}
-
-h1 {
-    font-size: 5rem; /* 80px */
-}
-
-h2 {
-    font-size: 2.5rem; /* 40px */
-}
-
-h3 {
-    font-size: 1.75rem; /* 28px */
 }
 
 p {
@@ -115,12 +102,11 @@ p:last-child {
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
     color: var(--color-primary-dark);
-    text-decoration: underline;
 }
 
 img {
@@ -128,13 +114,12 @@ img {
     display: block;
 }
 
+::selection {
+    background-color: var(--color-primary);
+    color: white;
+}
 
-/* * =======================================================
- * 3. Estilos de Layout
- * =======================================================
-*/
-
-/* Container reutilizável para centralizar conteúdo */
+/* 3. Layout */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -142,71 +127,115 @@ img {
     margin-right: auto;
 }
 
-/* Fundo principal onde os cards estão */
 .main-content {
     padding-top: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
 }
 
-/* O CSS Grid Container 
-   - 'repeat(auto-fit, ...)' cria colunas responsivas.
-   - 'minmax(350px, 1fr)' diz: crie colunas com no MÍNIMO 350px. 
-     Se sobrar espaço, divida-o igualmente (1fr).
-*/
 .main-grid-container {
     display: grid;
-    /* Define as colunas do grid */
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    /* Espaço entre os cards */
     gap: var(--spacing-lg);
 }
 
+/* 4. Componente: Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md) 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+}
 
-/* * =======================================================
- * 4. Componente: Hero Section (Header)
- * =======================================================
-*/
+.navbar.scrolled {
+    background-color: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: var(--font-headings);
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-menu a {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transition-speed) ease;
+}
+
+.nav-menu a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* 5. Componente: Hero Section */
 .hero-section {
-    height: 100vh; /* Ocupa 100% da altura da tela */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: var(--spacing-md);
-    
-    /* Configurações da imagem de fundo */
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;
-    
-    /* Posição relativa para a seta de scroll */
     position: relative;
     color: #ffffff;
 }
 
 .hero-content {
-    /* Efeito de sombra no texto para legibilidade */
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-    /* Animação de entrada */
     animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero-title {
-    font-size: 7rem; /* Tamanho maior para o título principal */
+    font-size: clamp(3.5rem, 10vw, 7rem); /* Fonte responsiva */
     font-weight: 900;
     line-height: 1;
     color: #ffffff;
-    margin-bottom: var(--spacing-sm);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     font-weight: 300;
     letter-spacing: 1px;
 }
 
-/* Seta de scroll */
 .scroll-down-arrow {
     position: absolute;
     bottom: var(--spacing-lg);
@@ -216,139 +245,111 @@ img {
     opacity: 0.8;
     animation: bounce 2s infinite ease-out;
 }
-
 .scroll-down-arrow:hover {
     opacity: 1;
-    text-decoration: none;
 }
 
-
-/* * =======================================================
- * 5. Componente: Intro Section
- * =======================================================
-*/
+/* 6. Componente: Intro Section */
 .intro-section {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/renderizacao-3d-do-fundo-de-textura-hexagonal_23-2150796421.jpg'); /* Troque pelo nome da sua imagem */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('imagens/renderizacao-3d-do-fundo-de-textura-hexagonal_23-2150796421.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efeito Parallax */
     color: #fff;
-    padding: 60px 0;
-    min-height: 400px; /* Ajuste conforme necessário */
+    padding: var(--spacing-xl) 0;
+    text-align: center;
     border-bottom: 5px solid var(--color-primary);
 }
 
 .intro-section h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     color: #ffffff;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .intro-section p {
     font-size: 1.15rem;
-    line-height: 1.7;
-    max-width: 800px; /* Limita a largura do texto para legibilidade */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     color: var(--color-text-primary);
 }
 
 
-/* * =======================================================
- * 6. Componente: Info Card (Article)
- * =======================================================
-*/
+/* 7. Componente: Info Card */
 .info-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-light);
-    
-    /* Transições suaves para o efeito :hover */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    /* Esconde qualquer conteúdo que transborde (ex: bordas) */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
     overflow: hidden;
-
-    /* Animação de entrada para os cards */
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
     animation: cardFadeIn 0.5s ease-out forwards;
-    opacity: 0; /* Começa invisível para a animação */
-    animation-delay: calc(var(--card-index, 0) * 50ms);
+    animation-delay: calc(var(--card-index, 0) * 70ms);
 }
-
-/* O .main-grid-container usa JS (ou CSS Nth-child) para setar --card-index,
-   mas para este exemplo, vamos assumir que o delay é aplicado.
-   Aqui está uma forma de fazer com CSS puro para os 20 cards: */
-.info-card:nth-child(1) { --card-index: 1; }
-.info-card:nth-child(2) { --card-index: 2; }
-.info-card:nth-child(3) { --card-index: 3; }
-.info-card:nth-child(4) { --card-index: 4; }
-.info-card:nth-child(5) { --card-index: 5; }
-.info-card:nth-child(6) { --card-index: 6; }
-.info-card:nth-child(7) { --card-index: 7; }
-.info-card:nth-child(8) { --card-index: 8; }
-.info-card:nth-child(9) { --card-index: 9; }
-.info-card:nth-child(10) { --card-index: 10; }
-.info-card:nth-child(11) { --card-index: 11; }
-.info-card:nth-child(12) { --card-index: 12; }
-.info-card:nth-child(13) { --card-index: 13; }
-.info-card:nth-child(14) { --card-index: 14; }
-.info-card:nth-child(15) { --card-index: 15; }
-.info-card:nth-child(16) { --card-index: 16; }
-.info-card:nth-child(17) { --card-index: 17; }
-.info-card:nth-child(18) { --card-index: 18; }
-.info-card:nth-child(19) { --card-index: 19; }
-.info-card:nth-child(20) { --card-index: 20; }
+/* Staggering animation delay */
+.main-grid-container > *:nth-child(1) { --card-index: 1; }
+.main-grid-container > *:nth-child(2) { --card-index: 2; }
+.main-grid-container > *:nth-child(3) { --card-index: 3; }
+.main-grid-container > *:nth-child(4) { --card-index: 4; }
+.main-grid-container > *:nth-child(5) { --card-index: 5; }
+.main-grid-container > *:nth-child(6) { --card-index: 6; }
+.main-grid-container > *:nth-child(7) { --card-index: 7; }
+.main-grid-container > *:nth-child(8) { --card-index: 8; }
+.main-grid-container > *:nth-child(9) { --card-index: 9; }
+/* ...e assim por diante */
 
 
-/* Efeito :hover (Mouse em cima) */
 .info-card:hover {
-    /* Eleva o card sutilmente */
     transform: translateY(-8px);
     box-shadow: var(--shadow-heavy);
     border-color: var(--color-primary);
 }
 
-/* Cabeçalho do Card */
-.card-header {
-    background-color: var(--color-primary);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-bottom: 3px solid var(--color-primary-dark);
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.card-body {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o corpo do card ocupar o espaço restante */
 }
 
 .card-header h2 {
-    color: #ffffff;
     margin-bottom: 0;
-    font-size: 1.75rem; /* 28px */
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    line-height: 1.2;
 }
 
-/* Conteúdo do Card */
 .card-content {
-    padding: var(--spacing-lg);
+    padding-top: var(--spacing-md);
 }
 
 
-/* * =======================================================
- * 7. Componente: Listas Estilizadas
- * =======================================================
-*/
-
-/* Lista <ul> padrão (usada em "Como Jogar") */
+/* 8. Componente: Listas Estilizadas */
 .styled-list {
-    list-style-type: none; /* Remove bolinhas padrão */
+    list-style-type: none;
     padding-left: 0;
     margin-top: var(--spacing-md);
 }
 
 .styled-list li {
     position: relative;
-    padding-left: 1.8em; /* Espaço para o marcador customizado */
-    margin-bottom: var(--spacing-sm);
+    padding-left: 1.8em;
+    margin-bottom: 8px;
 }
 
-/* Marcador customizado (::before) */
 .styled-list li::before {
-    content: '»'; /* Marcador */
+    content: '»';
     position: absolute;
     left: 0;
     top: -2px;
@@ -357,39 +358,46 @@ img {
     font-weight: 700;
 }
 
-/* Variação da lista com "checkmarks" (usada em "Nações") */
 .styled-list.checkmark-list li::before {
-    content: '✓'; /* Marcador de check */
+    content: '✓';
     color: var(--color-success);
 }
 
-/* Lista de Definição <dl> (usada em "Classes") */
 .definition-list dt {
-    font-family: var(--font-headings);
+    font-family: var(--font-primary);
     font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--color-text-primary); /* Isso deixa todos brancos */
-    letter-spacing: 0.5px;
+    font-size: 1rem;
+    color: var(--color-text-primary);
     margin-top: var(--spacing-md);
+    position: relative;
+    padding-left: 20px;
+}
+.definition-list dt::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
 }
 
+
 .definition-list dd {
-    margin-left: 0;
+    margin-left: 20px;
     padding-left: var(--spacing-md);
-    border-left: 3px solid var(--color-border);
+    border-left: 2px solid var(--color-border);
     margin-bottom: var(--spacing-md);
     font-size: 0.95rem;
 }
 
-/* * =======================================================
- * 8. Componente: Footer
- * =======================================================
-*/
+/* 9. Componente: Footer */
 .footer-wot {
     background-color: #0a0a0a;
     color: #777;
-    padding-top: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
     margin-top: var(--spacing-xl);
     text-align: center;
     border-top: 5px solid var(--color-primary-dark);
@@ -397,49 +405,59 @@ img {
 }
 
 .footer-wot p {
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-wot .container {
-    max-width: 800px;
+    margin-bottom: 8px;
 }
 
 
-/* * =======================================================
- * 9. Animações (Keyframes)
- * =======================================================
-*/
+/* 10. Componente: Botão "Voltar ao Topo" */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
 
-/* Animação para a seta de scroll */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--color-primary-dark);
+    color: white;
+}
+
+
+/* 11. Animações e Efeitos */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translate(-50%, 0);
-    }
-    40% {
-        transform: translate(-50%, -15px);
-    }
-    60% {
-        transform: translate(-50%, -7px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -15px); }
+    60% { transform: translate(-50%, -7px); }
 }
 
-/* Animação de entrada para o Hero */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Animação de entrada para os Cards */
 @keyframes cardFadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.98);
+        transform: translateY(40px) scale(0.98);
     }
     to {
         opacity: 1;
@@ -448,93 +466,22 @@ img {
 }
 
 
-/* * =======================================================
- * 10. Media Queries (Responsividade)
- * =======================================================
-*/
-
-/* Para Tablets (ex: iPads) */
-@media (max-width: 1024px) {
-    .hero-title {
-        font-size: 5.5rem; /* Reduz o título no hero */
-    }
-
-    .intro-section h2 {
-        font-size: 2.5rem;
-    }
-
-    .intro-section p {
-        font-size: 1.05rem;
-    }
-    
-    /* Faz o grid ter 2 colunas */
-    .main-grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: var(--spacing-md);
-    }
-}
-
-
-/* Para Celulares (ex: iPhones, Galaxy) */
+/* 12. Media Queries (Responsividade) */
 @media (max-width: 767px) {
-    body {
-        font-size: 15px; /* Ajusta o tamanho base */
-    }
-
-    .hero-title {
-        font-size: 3.5rem; /* Reduz drasticamente para caber */
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .nav-menu {
+        display: none; /* Simplifica o menu em mobile, pode ser substituído por um menu hamburguer */
     }
 
     .intro-section {
-        padding-top: var(--spacing-lg);
-        padding-bottom: var(--spacing-lg);
-        background-attachment: scroll; /* Remove o parallax em celulares (performance) */
+        background-attachment: scroll; /* Remove parallax em mobile para performance */
     }
 
-    .intro-section h2 {
-        font-size: 2rem;
-    }
-
-    .intro-section p {
-        font-size: 1rem;
-    }
-
-    /* Força o grid a ter apenas 1 coluna */
     .main-grid-container {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
-
-    .card-content {
-        padding: var(--spacing-md); /* Menos padding interno nos cards */
-    }
-
-    .card-header h2 {
-        font-size: 1.5rem;
+    
+    .card-image {
+        height: 180px;
     }
 }
-
-/* Ajustes finos para celulares pequenos */
-@media (max-width: 480px) {
-    .container {
-        width: 95%; /* Usa quase toda a largura */
-    }
-
-    .hero-title {
-        font-size: 2.8rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .main-grid-container {
-        /* Reduz o minmax para permitir cards em telas bem pequenas */
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-}
-/* Fim do arquivo CSS */
