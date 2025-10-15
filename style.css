@@ -228,18 +228,13 @@ img {
  * =======================================================
 */
 .intro-section {
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-    
-    /* Configurações da imagem de fundo */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('imagens/renderizacao-3d-do-fundo-de-textura-hexagonal_23-2150796421.jpg'); /* Troque pelo nome da sua imagem */
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
-    /* Efeito Parallax (opcional, mas profissional) */
-    background-attachment: fixed;
-    
-    color: var(--color-text-primary);
-    text-align: center;
+    color: #fff;
+    padding: 60px 0;
+    min-height: 400px; /* Ajuste conforme necessário */
     border-bottom: 5px solid var(--color-primary);
 }
 
@@ -373,7 +368,7 @@ img {
     font-family: var(--font-headings);
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary); /* Isso deixa todos brancos */
     letter-spacing: 0.5px;
     margin-top: var(--spacing-md);
 }
@@ -541,4 +536,5 @@ img {
         /* Reduz o minmax para permitir cards em telas bem pequenas */
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-}<section id="introducao" class="intro-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://wallpapercave.com/wp/wp7162489.jpg');"><section id="introducao" class="intro-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://wallpapercave.com/wp/wp7162489.jpg');">
+}
+/* Fim do arquivo CSS */
