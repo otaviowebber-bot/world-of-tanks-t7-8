@@ -1,5 +1,5 @@
 /* * =======================================================
- * STYLE.CSS - WORLD OF TANKS GUIA (v2.0)
+ * STYLE.CSS - WORLD OF TANKS GUIA (v2.1 - MELHORADO)
  * =======================================================
  *
  * ÍNDICE:
@@ -9,9 +9,9 @@
  * 4.  Componente: Navbar
  * 5.  Componente: Hero Section
  * 6.  Componente: Intro Section
- * 7.  Componente: Info Card
+ * 7.  Componente: Info Card (COM MELHORIAS)
  * 8.  Componente: Listas Estilizadas
- * 9.  Componente: Footer
+ * 9.  Componente: Footer (MELHORADO)
  * 10. Componente: Botão "Voltar ao Topo"
  * 11. Animações e Efeitos
  * 12. Media Queries (Responsividade)
@@ -19,9 +19,12 @@
  * =======================================================
 */
 
-/* 1. Variáveis Globais e Reset */
+
+/* ========================================================== */
+/* 1. Variáveis Globais e Reset                               */
+/* ========================================================== */
 :root {
-    /* Cores */
+    /* -- CORES -- */
     --color-primary: #d64d1e;
     --color-primary-dark: #b83c11;
     --color-background: #121212;
@@ -32,22 +35,23 @@
     --color-text-headings: #ffffff;
     --color-success: #4CAF50;
 
-    /* Tipografia */
+    /* -- TIPOGRAFIA -- */
     --font-primary: 'Roboto', sans-serif;
     --font-headings: 'Teko', sans-serif;
 
-    /* Espaçamento */
+    /* -- ESPAÇAMENTO -- */
     --spacing-md: 16px;
     --spacing-lg: 32px;
     --spacing-xl: 64px;
 
-    /* Outros */
+    /* -- OUTROS -- */
     --border-radius: 8px;
     --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.3);
     --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.5);
     --transition-speed: 0.3s;
 }
 
+/* -- RESET -- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -60,7 +64,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Customização da barra de rolagem */
+/* -- CUSTOMIZAÇÃO DA BARRA DE ROLAGEM -- */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -73,7 +77,10 @@ html {
     border: 2px solid var(--color-background);
 }
 
-/* 2. Estilos Base */
+
+/* ========================================================== */
+/* 2. Estilos Base                                            */
+/* ========================================================== */
 body {
     font-family: var(--font-primary);
     background-color: var(--color-background);
@@ -91,23 +98,15 @@ h1, h2, h3 {
     margin-bottom: var(--spacing-md);
 }
 
-p {
-    margin-bottom: var(--spacing-md);
-}
-
-p:last-child {
-    margin-bottom: 0;
-}
+p { margin-bottom: var(--spacing-md); }
+p:last-child { margin-bottom: 0; }
 
 a {
     color: var(--color-primary);
     text-decoration: none;
     transition: color var(--transition-speed) ease;
 }
-
-a:hover {
-    color: var(--color-primary-dark);
-}
+a:hover { color: var(--color-primary-dark); }
 
 img {
     max-width: 100%;
@@ -119,7 +118,10 @@ img {
     color: white;
 }
 
-/* 3. Layout */
+
+/* ========================================================== */
+/* 3. Layout                                                  */
+/* ========================================================== */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -138,7 +140,10 @@ img {
     gap: var(--spacing-lg);
 }
 
-/* 4. Componente: Navbar */
+
+/* ========================================================== */
+/* 4. Componente: Navbar (Barra de Navegação)                 */
+/* ========================================================== */
 .navbar {
     position: sticky;
     top: 0;
@@ -203,7 +208,10 @@ img {
     transform-origin: left;
 }
 
-/* 5. Componente: Hero Section */
+
+/* ========================================================== */
+/* 5. Componente: Hero Section (Seção Principal)              */
+/* ========================================================== */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -214,17 +222,39 @@ img {
     padding: var(--spacing-md);
     background-size: cover;
     background-position: center center;
-    position: relative;
+    position: relative; /* Necessário para posicionar a sobreposição (::after) e o conteúdo */
     color: #ffffff;
 }
 
+/* NOVO: Adiciona uma sobreposição sutil de padrão (scanlines) sobre a imagem de fundo. */
+.hero-section::after {
+    content: ''; /* Pseudo-elementos sempre precisam de 'content'. */
+    position: absolute; /* Posicionamento absoluto dentro da hero-section. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Cria um gradiente que simula linhas finas, dando uma textura "tecnológica". */
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.2),
+        rgba(0,0,0,0.2) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    z-index: 1; /* Coloca a sobreposição acima da imagem de fundo. */
+}
+
+/* O conteúdo principal precisa ter um z-index maior para ficar na frente da sobreposição. */
 .hero-content {
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
     animation: fadeIn 1.5s ease-in-out;
+    position: relative; /* Necessário para que o z-index funcione. */
+    z-index: 2;
 }
 
 .hero-title {
-    font-size: clamp(3.5rem, 10vw, 7rem); /* Fonte responsiva */
+    font-size: clamp(3.5rem, 10vw, 7rem);
     font-weight: 900;
     line-height: 1;
     color: #ffffff;
@@ -244,17 +274,21 @@ img {
     color: #ffffff;
     opacity: 0.8;
     animation: bounce 2s infinite ease-out;
+    z-index: 2; /* A seta também precisa ficar na frente. */
 }
 .scroll-down-arrow:hover {
     opacity: 1;
 }
 
-/* 6. Componente: Intro Section */
+
+/* ========================================================== */
+/* 6. Componente: Intro Section                               */
+/* ========================================================== */
 .intro-section {
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('imagens/renderizacao-3d-do-fundo-de-textura-hexagonal_23-2150796421.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax */
+    background-attachment: fixed;
     color: #fff;
     padding: var(--spacing-xl) 0;
     text-align: center;
@@ -276,7 +310,9 @@ img {
 }
 
 
-/* 7. Componente: Info Card */
+/* ========================================================== */
+/* 7. Componente: Info Card                                   */
+/* ========================================================== */
 .info-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -290,7 +326,8 @@ img {
     animation: cardFadeIn 0.5s ease-out forwards;
     animation-delay: calc(var(--card-index, 0) * 70ms);
 }
-/* Staggering animation delay */
+
+/* -- Staggering animation delay -- */
 .main-grid-container > *:nth-child(1) { --card-index: 1; }
 .main-grid-container > *:nth-child(2) { --card-index: 2; }
 .main-grid-container > *:nth-child(3) { --card-index: 3; }
@@ -300,27 +337,38 @@ img {
 .main-grid-container > *:nth-child(7) { --card-index: 7; }
 .main-grid-container > *:nth-child(8) { --card-index: 8; }
 .main-grid-container > *:nth-child(9) { --card-index: 9; }
-/* ...e assim por diante */
+.main-grid-container > *:nth-child(10) { --card-index: 10; }
+.main-grid-container > *:nth-child(11) { --card-index: 11; }
+.main-grid-container > *:nth-child(12) { --card-index: 12; }
 
 
+/* MELHORADO: Efeito ao passar o mouse sobre o card. */
 .info-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02); /* Além de elevar, aumenta levemente o tamanho. */
     box-shadow: var(--shadow-heavy);
     border-color: var(--color-primary);
 }
 
+/* MELHORADO: Efeito de zoom na imagem do card ao passar o mouse sobre o card PAI. */
+.info-card:hover .card-image {
+    transform: scale(1.1); /* Aumenta o tamanho da imagem. */
+}
+
+/* Imagem no topo do card. */
 .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 3px solid var(--color-primary);
+    transform-origin: center center; /* Garante que o zoom seja a partir do centro. */
+    transition: transform var(--transition-speed) ease-in-out; /* Transição suave para o zoom. */
 }
 
 .card-body {
     padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Faz o corpo do card ocupar o espaço restante */
+    flex-grow: 1;
 }
 
 .card-header h2 {
@@ -334,8 +382,44 @@ img {
     padding-top: var(--spacing-md);
 }
 
+/* NOVO: Estilo para um card em destaque. */
+.featured-card {
+    position: relative; /* Necessário para posicionar o "ribbon" (fita) dentro dele. */
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 25px rgba(214, 77, 30, 0.3); /* Efeito de brilho sutil. */
+}
 
-/* 8. Componente: Listas Estilizadas */
+/* NOVO: A "fita" ou "ribbon" no canto do card em destaque. */
+.featured-ribbon {
+    position: absolute;
+    top: -10px;      /* Posiciona um pouco para fora do card no topo. */
+    right: 15px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 6px 12px;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow-light);
+    z-index: 10;     /* Garante que a fita fique acima de outros elementos. */
+}
+
+/* NOVO: Pequeno triângulo abaixo da fita para um efeito mais realista. */
+.featured-ribbon::before {
+    content: '';
+    position: absolute;
+    bottom: -8px; /* Posiciona o triângulo abaixo da fita. */
+    right: 5px;
+    border-width: 8px 6px 0 6px; /* Cria um triângulo usando bordas. */
+    border-style: solid;
+    border-color: var(--color-primary-dark) transparent transparent transparent;
+}
+
+
+/* ========================================================== */
+/* 8. Componente: Listas Estilizadas                          */
+/* ========================================================== */
 .styled-list {
     list-style-type: none;
     padding-left: 0;
@@ -372,6 +456,7 @@ img {
     position: relative;
     padding-left: 20px;
 }
+
 .definition-list dt::before {
     content: '';
     position: absolute;
@@ -384,7 +469,6 @@ img {
     border-radius: 2px;
 }
 
-
 .definition-list dd {
     margin-left: 20px;
     padding-left: var(--spacing-md);
@@ -393,7 +477,10 @@ img {
     font-size: 0.95rem;
 }
 
-/* 9. Componente: Footer */
+
+/* ========================================================== */
+/* 9. Componente: Footer (Rodapé)                             */
+/* ========================================================== */
 .footer-wot {
     background-color: #0a0a0a;
     color: #777;
@@ -404,12 +491,51 @@ img {
     font-size: 0.9rem;
 }
 
-.footer-wot p {
+/* NOVO: Container para melhor alinhamento do conteúdo do rodapé */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg); /* Espaço entre os elementos do rodapé. */
+}
+
+/* NOVO: Conteúdo de texto do rodapé. */
+.footer-text p {
     margin-bottom: 8px;
 }
 
+/* NOVO: Seção para links de redes sociais. */
+.footer-socials {
+    display: flex;
+    gap: var(--spacing-md); /* Espaço entre os ícones. */
+}
 
-/* 10. Componente: Botão "Voltar ao Topo" */
+/* NOVO: Estilo para cada link de rede social. */
+.footer-socials a {
+    color: #a0a0a0;
+    font-size: 1.5rem; /* Tamanho dos ícones simulados. */
+    font-family: var(--font-headings); /* Usa a fonte de títulos para um visual estilizado. */
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-border);
+    border-radius: 50%; /* Deixa o fundo circular. */
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+/* NOVO: Efeito ao passar o mouse sobre o ícone. */
+.footer-socials a:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary); /* Muda a cor da borda também. */
+    transform: scale(1.1) rotate(5deg); /* Aumenta e rotaciona levemente. */
+}
+
+
+/* ========================================================== */
+/* 10. Componente: Botão "Voltar ao Topo"                     */
+/* ========================================================== */
 .back-to-top {
     position: fixed;
     bottom: 20px;
@@ -442,7 +568,9 @@ img {
 }
 
 
-/* 11. Animações e Efeitos */
+/* ========================================================== */
+/* 11. Animações e Efeitos (@keyframes)                       */
+/* ========================================================== */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
     40% { transform: translate(-50%, -15px); }
@@ -451,7 +579,7 @@ img {
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes cardFadeIn {
@@ -466,18 +594,20 @@ img {
 }
 
 
-/* 12. Media Queries (Responsividade) */
+/* ========================================================== */
+/* 12. Media Queries (Responsividade)                         */
+/* ========================================================== */
 @media (max-width: 767px) {
     .nav-menu {
-        display: none; /* Simplifica o menu em mobile, pode ser substituído por um menu hamburguer */
+        display: none; /* Esconde o menu de navegação em telas pequenas (ideal seria um menu hamburguer). */
     }
 
     .intro-section {
-        background-attachment: scroll; /* Remove parallax em mobile para performance */
+        background-attachment: scroll; /* Remove o efeito parallax em celulares para melhor performance. */
     }
 
     .main-grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Força o grid a ter apenas uma coluna. */
         gap: var(--spacing-md);
     }
     

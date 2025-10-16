@@ -22,6 +22,7 @@
                 <li><a href="#bloco-12">Classes</a></li>
                 <li><a href="#bloco-04">Nações</a></li>
                 <li><a href="#bloco-14">Modos de Jogo</a></li>
+                <li><a href="#bloco-21">Mecânicas</a></li>
             </ul>
         </div>
     </nav>
@@ -206,6 +207,62 @@
                 </div>
             </article>
             
+            <article class="info-card featured-card" id="bloco-21">
+                <div class="card-body">
+                    <header class="card-header">
+                        <div class="featured-ribbon"><span>Essencial</span></div>
+                        <h2>Mecânicas de Visão e Camuflagem</h2>
+                    </header>
+                    <div class="card-content">
+                        <p>Talvez a mecânica mais importante do jogo. Quem vê sem ser visto, vence. Entenda os conceitos:</p>
+                        <dl class="definition-list">
+                            <dt>Alcance de Visão (View Range)</dt>
+                            <dd>A distância máxima que seu tanque pode "enxergar". Influenciado pela tripulação e equipamentos (Ópticas, Binóculos).</dd>
+                            <dt>Valor de Camuflagem (Camo Value)</dt>
+                            <dd>Uma estatística que determina o quão difícil é para o inimigo detectar seu tanque. Arbustos e árvores caídas aumentam drasticamente sua camuflagem.</dd>
+                            <dt>Pontos de Checagem de Visão</dt>
+                            <dd>Seu tanque possui pontos específicos que "emitem" e "recebem" visão. Se um ponto de visão inimigo tiver uma linha de visão limpa para um dos seus, você é detectado.</dd>
+                            <dt>Círculos no Minimapa</dt>
+                            <dd>Ative-os nas configurações! Eles mostram seu alcance de visão, a distância máxima de detecção (445m) e o alcance de renderização.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </article>
+
+            <article class="info-card" id="bloco-22">
+                <div class="card-body">
+                    <header class="card-header">
+                        <h2>Blindagem, Angulação e Pontos Fracos</h2>
+                    </header>
+                    <div class="card-content">
+                        <p>Sua blindagem não é apenas um número. Saber como usá-la pode dobrar sua capacidade de sobrevivência.</p>
+                        <ul class="styled-list checkmark-list">
+                            <li><strong>Angulação:</strong> Nunca encare o inimigo de frente. Incline seu casco para aumentar a espessura efetiva da blindagem e a chance de ricochetear tiros.</li>
+                            <li><strong>Side-Scraping:</strong> Técnica onde você esconde a frente do seu tanque e expõe apenas a lateral em um ângulo extremo, fazendo os tiros ricochetearem.</li>
+                            <li><strong>Pontos Fracos (Weak Spots):</strong> Todo tanque tem pontos fracos. Geralmente são a placa inferior do chassi, a cúpula do comandante na torre e a traseira. Atire neles!</li>
+                            <li><strong>Hull-Down:</strong> Use o terreno para esconder o casco (mais fraco) e mostrar apenas a torre (geralmente mais forte) para o inimigo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="info-card" id="bloco-23">
+                <div class="card-body">
+                    <header class="card-header">
+                        <h2>Consciência de Mapa e Posicionamento</h2>
+                    </header>
+                    <div class="card-content">
+                        <p>O minimapa é sua ferramenta mais poderosa. Um bom jogador passa 50% do tempo olhando para ele.</p>
+                        <ul class="styled-list">
+                            <li><strong>Controle de Flancos:</strong> Veja onde sua equipe está e onde não está. Um flanco aberto é um convite para a derrota.</li>
+                            <li><strong>Última Posição Conhecida:</strong> O jogo mostra no mapa a última posição onde um inimigo foi visto. Use isso para prever seus movimentos.</li>
+                            <li><strong>Linhas de Tiro:</strong> Posicione-se de forma a ter tiros nos inimigos, mas com cobertura (pedras, prédios) para se proteger após atirar.</li>
+                            <li><strong>Adapte-se:</strong> Não fique no mesmo lugar a batalha inteira. Se seu flanco venceu, avance. Se está perdendo, recue para uma posição defensiva.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
             <article class="info-card" id="bloco-02">
                 <img src="imagens/dinhero.png" alt="Economia do Jogo" class="card-image">
                 <div class="card-body">
@@ -328,10 +385,18 @@
     </main>
 
     <footer class="footer-wot">
-        <div class="container">
-            <p>Projeto Informativo World of Tanks.</p>
-            <p>Este é um site não oficial criado por um fã, com o objetivo de fornecer informações de forma clara.</p>
-            <p>Desenvolvido com HTML5, CSS3 (Flexbox e Grid), JavaScript e muito café.</p>
+        <div class="container footer-container">
+            <div class="footer-text">
+                <p>Projeto Informativo World of Tanks.</p>
+                <p>Este é um site não oficial criado por um fã, com o objetivo de fornecer informações de forma clara.</p>
+                <p>Desenvolvido com HTML5, CSS3 (Flexbox e Grid) e JavaScript.</p>
+            </div>
+    
+            <div class="footer-socials">
+                <a href="https://www.facebook.com/WorldOfTanks/" target="_blank" aria-label="Facebook" title="Facebook">FB</a>
+                <a href="https://www.twitch.tv/worldoftanks" target="_blank" aria-label="Twitter" title="Twitch">TW</a>
+                <a href="https://www.youtube.com/@WorldOfTanksOfficialChannel" target="_blank" aria-label="YouTube" title="YouTube">YT</a>
+            </div>
         </div>
     </footer>
     
@@ -339,18 +404,20 @@
 
     <script>
         // Lógica para o menu de navegação e botão "Voltar ao Topo"
+        // Pega os elementos do HTML pelo seu ID ou classe
         const navbar = document.getElementById('navbar');
         const backToTopButton = document.querySelector('.back-to-top');
 
+        // Esta função é executada toda vez que o usuário rola a página
         window.onscroll = function() {
-            // Adiciona/remove classe para o menu de navegação
+            // Adiciona/remove classe para o menu de navegação ficar com fundo escuro
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
 
-            // Mostra/esconde o botão "Voltar ao Topo"
+            // Mostra/esconde o botão "Voltar ao Topo" dependendo da posição da rolagem
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 backToTopButton.classList.add('visible');
             } else {
