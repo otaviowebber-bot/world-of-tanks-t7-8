@@ -10,20 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Teko:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="nav-brand">WOT GUIA</a>
+            <button class="nav-toggle" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-menu">
                 <li><a href="#introducao">Introdução</a></li>
-                <li><a href="#bloco-03">Controles</a></li>
-                <li><a href="#bloco-12">Classes</a></li>
+                <li><a href="#tanques-destaque">Tanques</a></li>
+                <li><a href="#comparador">Comparador</a></li>
                 <li><a href="#bloco-04">Nações</a></li>
                 <li><a href="#bloco-14">Modos de Jogo</a></li>
                 <li><a href="#bloco-21">Mecânicas</a></li>
-            </ul>
+                </ul>
         </div>
     </nav>
 
@@ -48,6 +52,47 @@
                 Mergulhe em batalhas épicas 15 vs 15, onde a estratégia, o conhecimento do terreno e o trabalho em equipe são tão cruciais quanto o poder de fogo do seu tanque. 
                 Este guia informativo é o seu ponto de partida para dominar as mecânicas complexas e se tornar um comandante lendário.
             </p>
+        </div>
+    </section>
+
+    <section id="tanques-destaque" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Tanques Icônicos</h2>
+            <p class="section-subtitle">Conheça alguns dos veículos mais famosos do jogo.</p>
+            <div class="tank-gallery">
+                <div class="tank-card" data-tank-id="tiger-i">
+                    <img src="https://www.mmowg.net/wp-content/uploads/2018/06/world-of-tanks-tiger-i-guide-weak-spots-e1529591456208.jpg" alt="Tanque Tiger I" class="tank-card-img">
+                    <div class="tank-card-overlay">
+                        <h3>Tiger I</h3>
+                        <p>Tier VII Pesado Alemão</p>
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="tank-card" data-tank-id="is-3">
+                    <img src="https://wg-image.s3.amazonaws.com/images/5f04595e8071a7000e30325d.jpeg" alt="Tanque IS-3" class="tank-card-img">
+                    <div class="tank-card-overlay">
+                        <h3>IS-3</h3>
+                        <p>Tier VIII Pesado Soviético</p>
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="tank-card" data-tank-id="m4-sherman">
+                    <img src="https://thedailybounce.net/wp-content/uploads/2017/04/M4A3E8-03.jpg" alt="Tanque M4 Sherman" class="tank-card-img">
+                    <div class="tank-card-overlay">
+                        <h3>M4A3E8 Sherman</h3>
+                        <p>Tier VI Médio Americano</p>
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+                 <div class="tank-card" data-tank-id="cromwell">
+                    <img src="https://i.ytimg.com/vi/5-ne1n5hLgM/maxresdefault.jpg" alt="Tanque Cromwell" class="tank-card-img">
+                    <div class="tank-card-overlay">
+                        <h3>Cromwell</h3>
+                        <p>Tier VI Médio Britânico</p>
+                        <button class="btn-details">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -284,36 +329,6 @@
                     </div>
                 </div>
             </article>
-
-            <article class="info-card" id="bloco-07">
-                <div class="card-body">
-                    <header class="card-header">
-                        <h2>Tanques Premium</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>Veículos obtidos com ouro (dinheiro real) ou em eventos.</p>
-                        <p><strong>Vantagens Principais:</strong></p>
-                        <ul class="styled-list">
-                            <li><strong>Geram mais Créditos:</strong> Sua principal função. São a melhor forma de "farmar" prata.</li>
-                            <li><strong>Treinamento de Tripulação:</strong> Aceleram o treinamento de habilidades de outras tripulações.</li>
-                            <li><strong>Não são "Pay-to-Win":</strong> São balanceados para serem equivalentes aos tanques de linha.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="info-card" id="bloco-01">
-                <img src="imagens/garagen.png" alt="Garagem do World of Tanks" class="card-image">
-                <div class="card-body">
-                    <header class="card-header">
-                        <h2>A Garagem</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>A Garagem é sua central de comando. É aqui que você vê seus tanques, gerencia tripulações, aplica customizações e seleciona o modo de batalha.</p>
-                        <p>É o "lobby" principal do World of Tanks e sua aparência muda com base em eventos sazonais.</p>
-                    </div>
-                </div>
-            </article>
             
             <article class="info-card" id="bloco-14">
                 <div class="card-body">
@@ -339,51 +354,38 @@
                     </div>
                 </div>
             </article>
-
-            <article class="info-card" id="bloco-20">
-                <div class="card-body">
-                    <header class="card-header">
-                        <h2>Modo: Linha de Frente</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>Um modo de jogo épico e temporário (30 vs 30) em mapas gigantescos, focado em veículos de Tier VIII.</p>
-                        <p>Atacantes tentam capturar zonas progressivamente até destruir os objetivos finais, enquanto defensores tentam segurá-los. Excelente para farmar créditos.</p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="info-card" id="bloco-15">
-                <div class="card-body">
-                    <header class="card-header">
-                        <h2>O que é um Clã?</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>Um Clã é um grupo de jogadores. Entrar em um clã ativo é uma das melhores formas de evoluir no jogo.</p>
-                        <p><strong>Benefícios:</strong></p>
-                        <ul class="styled-list checkmark-list">
-                            <li>Jogar com amigos coordenados.</li>
-                            <li>Bônus de Créditos e XP passivos.</li>
-                            <li>Acesso a modos de jogo competitivos.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-            
-            <article class="info-card" id="bloco-17">
-                <div class="card-body">
-                    <header class="card-header">
-                        <h2>Campanhas (Missões Pessoais)</h2>
-                    </header>
-                    <div class="card-content">
-                        <p>Séries de missões individuais de longa duração, divididas por classe de tanque, que exigem alto nível de habilidade.</p>
-                         <p>Completá-las concede recompensas exclusivas, incluindo tanques cobiçados como o <strong>Objeto 260</strong> e o <strong>Objeto 279 (e)</strong>.</p>
-                    </div>
-                </div>
-            </article>
-
         </div> 
     </main>
 
+    <section id="comparador" class="comparator-section">
+        <div class="container">
+            <h2 class="section-title">Comparador de Tanques</h2>
+            <p class="section-subtitle">Selecione dois tanques de Tier VIII para comparar seus atributos.</p>
+            <div class="comparator-controls">
+                <div class="select-wrapper">
+                    <label for="tank1-select">Tanque 1</label>
+                    <select id="tank1-select">
+                        <option value="is-3">IS-3</option>
+                        <option value="tiger-ii">Tiger II</option>
+                        <option value="t32">T32</option>
+                        <option value="caernarvon">Caernarvon</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <label for="tank2-select">Tanque 2</label>
+                    <select id="tank2-select">
+                        <option value="is-3">IS-3</option>
+                        <option value="tiger-ii" selected>Tiger II</option>
+                        <option value="t32">T32</option>
+                        <option value="caernarvon">Caernarvon</option>
+                    </select>
+                </div>
+            </div>
+            <div id="comparison-table-container">
+                </div>
+        </div>
+    </section>
+    
     <footer class="footer-wot">
         <div class="container footer-container">
             <div class="footer-text">
@@ -393,38 +395,23 @@
             </div>
     
             <div class="footer-socials">
-                <a href="https://www.facebook.com/WorldOfTanks/" target="_blank" aria-label="Facebook" title="Facebook">FB</a>
-                <a href="https://www.twitch.tv/worldoftanks" target="_blank" aria-label="Twitter" title="Twitch">TW</a>
-                <a href="https://www.youtube.com/@WorldOfTanksOfficialChannel" target="_blank" aria-label="YouTube" title="YouTube">YT</a>
+                <a href="https://www.facebook.com/WorldOfTanks/" target="_blank" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitch.tv/worldoftanks" target="_blank" aria-label="Twitch" title="Twitch"><i class="fab fa-twitch"></i></a>
+                <a href="https://www.youtube.com/@WorldOfTanksOfficialChannel" target="_blank" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
     
     <a href="#" class="back-to-top" aria-label="Voltar ao topo">▲</a>
 
-    <script>
-        // Lógica para o menu de navegação e botão "Voltar ao Topo"
-        // Pega os elementos do HTML pelo seu ID ou classe
-        const navbar = document.getElementById('navbar');
-        const backToTopButton = document.querySelector('.back-to-top');
+    <div id="tank-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
 
-        // Esta função é executada toda vez que o usuário rola a página
-        window.onscroll = function() {
-            // Adiciona/remove classe para o menu de navegação ficar com fundo escuro
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Mostra/esconde o botão "Voltar ao Topo" dependendo da posição da rolagem
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        };
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>

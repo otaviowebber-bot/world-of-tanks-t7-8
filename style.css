@@ -1,20 +1,24 @@
 /* * =======================================================
- * STYLE.CSS - WORLD OF TANKS GUIA (v2.1 - MELHORADO)
+ * STYLE.CSS - WORLD OF TANKS GUIA (v3.0 - INTERATIVO)
  * =======================================================
  *
  * ÍNDICE:
  * 1.  Variáveis Globais e Reset
  * 2.  Estilos Base (Body, Tipografia)
- * 3.  Layout (Container, Grid)
- * 4.  Componente: Navbar
+ * 3.  Layout (Container, Grid, Seções)
+ * 4.  Componente: Navbar (Responsivo)
  * 5.  Componente: Hero Section
  * 6.  Componente: Intro Section
- * 7.  Componente: Info Card (COM MELHORIAS)
+ * 7.  Componente: Info Card
  * 8.  Componente: Listas Estilizadas
- * 9.  Componente: Footer (MELHORADO)
- * 10. Componente: Botão "Voltar ao Topo"
- * 11. Animações e Efeitos
- * 12. Media Queries (Responsividade)
+ * 9.  NOVO: Seção Galeria de Tanques
+ * 10. NOVO: Seção Comparador de Tanques
+ * 11. NOVO: Seção de Contato (Formulário)
+ * 12. Componente: Footer
+ * 13. Componente: Botão "Voltar ao Topo"
+ * 14. NOVO: Componente Modal
+ * 15. Animações e Efeitos
+ * 16. Media Queries (Responsividade)
  *
  * =======================================================
 */
@@ -34,6 +38,7 @@
     --color-text-secondary: #a0a0a0;
     --color-text-headings: #ffffff;
     --color-success: #4CAF50;
+    --color-error: #f44336;
 
     /* -- TIPOGRAFIA -- */
     --font-primary: 'Roboto', sans-serif;
@@ -140,6 +145,32 @@ img {
     gap: var(--spacing-lg);
 }
 
+.section-title {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto var(--spacing-xl);
+}
+
 
 /* ========================================================== */
 /* 4. Componente: Navbar (Barra de Navegação)                 */
@@ -208,6 +239,16 @@ img {
     transform-origin: left;
 }
 
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+}
+
 
 /* ========================================================== */
 /* 5. Componente: Hero Section (Seção Principal)              */
@@ -222,19 +263,17 @@ img {
     padding: var(--spacing-md);
     background-size: cover;
     background-position: center center;
-    position: relative; /* Necessário para posicionar a sobreposição (::after) e o conteúdo */
+    position: relative;
     color: #ffffff;
 }
 
-/* NOVO: Adiciona uma sobreposição sutil de padrão (scanlines) sobre a imagem de fundo. */
 .hero-section::after {
-    content: ''; /* Pseudo-elementos sempre precisam de 'content'. */
-    position: absolute; /* Posicionamento absoluto dentro da hero-section. */
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Cria um gradiente que simula linhas finas, dando uma textura "tecnológica". */
     background-image: repeating-linear-gradient(
         0deg,
         rgba(0,0,0,0.2),
@@ -242,14 +281,13 @@ img {
         transparent 1px,
         transparent 3px
     );
-    z-index: 1; /* Coloca a sobreposição acima da imagem de fundo. */
+    z-index: 1;
 }
 
-/* O conteúdo principal precisa ter um z-index maior para ficar na frente da sobreposição. */
 .hero-content {
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
     animation: fadeIn 1.5s ease-in-out;
-    position: relative; /* Necessário para que o z-index funcione. */
+    position: relative;
     z-index: 2;
 }
 
@@ -274,7 +312,7 @@ img {
     color: #ffffff;
     opacity: 0.8;
     animation: bounce 2s infinite ease-out;
-    z-index: 2; /* A seta também precisa ficar na frente. */
+    z-index: 2;
 }
 .scroll-down-arrow:hover {
     opacity: 1;
@@ -341,27 +379,23 @@ img {
 .main-grid-container > *:nth-child(11) { --card-index: 11; }
 .main-grid-container > *:nth-child(12) { --card-index: 12; }
 
-
-/* MELHORADO: Efeito ao passar o mouse sobre o card. */
 .info-card:hover {
-    transform: translateY(-8px) scale(1.02); /* Além de elevar, aumenta levemente o tamanho. */
+    transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-heavy);
     border-color: var(--color-primary);
 }
 
-/* MELHORADO: Efeito de zoom na imagem do card ao passar o mouse sobre o card PAI. */
 .info-card:hover .card-image {
-    transform: scale(1.1); /* Aumenta o tamanho da imagem. */
+    transform: scale(1.1);
 }
 
-/* Imagem no topo do card. */
 .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 3px solid var(--color-primary);
-    transform-origin: center center; /* Garante que o zoom seja a partir do centro. */
-    transition: transform var(--transition-speed) ease-in-out; /* Transição suave para o zoom. */
+    transform-origin: center center;
+    transition: transform var(--transition-speed) ease-in-out;
 }
 
 .card-body {
@@ -382,17 +416,15 @@ img {
     padding-top: var(--spacing-md);
 }
 
-/* NOVO: Estilo para um card em destaque. */
 .featured-card {
-    position: relative; /* Necessário para posicionar o "ribbon" (fita) dentro dele. */
+    position: relative;
     border: 2px solid var(--color-primary);
-    box-shadow: 0 0 25px rgba(214, 77, 30, 0.3); /* Efeito de brilho sutil. */
+    box-shadow: 0 0 25px rgba(214, 77, 30, 0.3);
 }
 
-/* NOVO: A "fita" ou "ribbon" no canto do card em destaque. */
 .featured-ribbon {
     position: absolute;
-    top: -10px;      /* Posiciona um pouco para fora do card no topo. */
+    top: -10px;
     right: 15px;
     background-color: var(--color-primary);
     color: white;
@@ -402,16 +434,15 @@ img {
     font-size: 0.9rem;
     border-radius: 4px;
     box-shadow: var(--shadow-light);
-    z-index: 10;     /* Garante que a fita fique acima de outros elementos. */
+    z-index: 10;
 }
 
-/* NOVO: Pequeno triângulo abaixo da fita para um efeito mais realista. */
 .featured-ribbon::before {
     content: '';
     position: absolute;
-    bottom: -8px; /* Posiciona o triângulo abaixo da fita. */
+    bottom: -8px;
     right: 5px;
-    border-width: 8px 6px 0 6px; /* Cria um triângulo usando bordas. */
+    border-width: 8px 6px 0 6px;
     border-style: solid;
     border-color: var(--color-primary-dark) transparent transparent transparent;
 }
@@ -479,7 +510,261 @@ img {
 
 
 /* ========================================================== */
-/* 9. Componente: Footer (Rodapé)                             */
+/* 9. NOVO: Seção Galeria de Tanques                          */
+/* ========================================================== */
+.gallery-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-surface);
+}
+
+.tank-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.tank-card {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-heavy);
+    transition: transform var(--transition-speed) ease;
+}
+
+.tank-card:hover {
+    transform: scale(1.05);
+}
+
+.tank-card-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tank-card:hover .tank-card-img {
+    transform: scale(1.15);
+}
+
+.tank-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-lg);
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
+    color: white;
+    transform: translateY(30%);
+    transition: transform 0.4s ease;
+}
+
+.tank-card:hover .tank-card-overlay {
+    transform: translateY(0);
+}
+
+.tank-card-overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+    color: white;
+}
+.tank-card-overlay p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+.btn-details {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.tank-card:hover .btn-details {
+    opacity: 1;
+}
+
+/* ========================================================== */
+/* 10. NOVO: Seção Comparador de Tanques                      */
+/* ========================================================== */
+.comparator-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.comparator-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.select-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-wrapper label {
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+}
+
+.select-wrapper select {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 1rem;
+    min-width: 250px;
+    cursor: pointer;
+    transition: border-color var(--transition-speed);
+}
+
+.select-wrapper select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-lg);
+    background-color: var(--color-surface);
+}
+
+.comparison-table th, .comparison-table td {
+    padding: var(--spacing-md);
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.comparison-table th {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+    background-color: #0a0a0a;
+}
+.comparison-table th:first-child {
+    text-align: left;
+}
+.comparison-table td:first-child {
+    font-weight: 700;
+    text-align: left;
+    color: var(--color-text-primary);
+}
+
+.comparison-table .higher {
+    color: var(--color-success);
+    font-weight: 700;
+}
+.comparison-table .lower {
+    color: var(--color-error);
+}
+
+/* ========================================================== */
+/* 11. NOVO: Seção de Contato (Formulário)                     */
+/* ========================================================== */
+.contact-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-surface);
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-group label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+/* Efeito de label flutuante */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.8rem;
+    background-color: var(--color-surface);
+    padding: 0 5px;
+    color: var(--color-primary);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-family: var(--font-headings);
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color var(--transition-speed);
+}
+.btn-submit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.form-feedback {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Começa escondido */
+}
+.form-feedback.success {
+    background-color: var(--color-success);
+    color: white;
+    display: block;
+}
+.form-feedback.error {
+    background-color: var(--color-error);
+    color: white;
+    display: block;
+}
+
+
+/* ========================================================== */
+/* 12. Componente: Footer (Rodapé)                            */
 /* ========================================================== */
 .footer-wot {
     background-color: #0a0a0a;
@@ -491,50 +776,44 @@ img {
     font-size: 0.9rem;
 }
 
-/* NOVO: Container para melhor alinhamento do conteúdo do rodapé */
 .footer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg); /* Espaço entre os elementos do rodapé. */
+    gap: var(--spacing-lg);
 }
 
-/* NOVO: Conteúdo de texto do rodapé. */
 .footer-text p {
     margin-bottom: 8px;
 }
 
-/* NOVO: Seção para links de redes sociais. */
 .footer-socials {
     display: flex;
-    gap: var(--spacing-md); /* Espaço entre os ícones. */
+    gap: var(--spacing-md);
 }
 
-/* NOVO: Estilo para cada link de rede social. */
 .footer-socials a {
     color: #a0a0a0;
-    font-size: 1.5rem; /* Tamanho dos ícones simulados. */
-    font-family: var(--font-headings); /* Usa a fonte de títulos para um visual estilizado. */
+    font-size: 1.2rem;
     width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid var(--color-border);
-    border-radius: 50%; /* Deixa o fundo circular. */
+    border-radius: 50%;
     transition: color var(--transition-speed) ease, transform var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
-/* NOVO: Efeito ao passar o mouse sobre o ícone. */
 .footer-socials a:hover {
     color: var(--color-primary);
-    border-color: var(--color-primary); /* Muda a cor da borda também. */
-    transform: scale(1.1) rotate(5deg); /* Aumenta e rotaciona levemente. */
+    border-color: var(--color-primary);
+    transform: scale(1.1) rotate(5deg);
 }
 
 
 /* ========================================================== */
-/* 10. Componente: Botão "Voltar ao Topo"                     */
+/* 13. Componente: Botão "Voltar ao Topo"                     */
 /* ========================================================== */
 .back-to-top {
     position: fixed;
@@ -569,7 +848,69 @@ img {
 
 
 /* ========================================================== */
-/* 11. Animações e Efeitos (@keyframes)                       */
+/* 14. NOVO: Componente Modal                                 */
+/* ========================================================== */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal.visible {
+    display: block;
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    margin: 5% auto;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: var(--shadow-heavy);
+    animation: slideIn 0.4s ease-out;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover, .close-button:focus {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+#modal-body h2 {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+#modal-body img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+}
+
+
+/* ========================================================== */
+/* 15. Animações e Efeitos (@keyframes)                       */
 /* ========================================================== */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
@@ -593,25 +934,60 @@ img {
     }
 }
 
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* ========================================================== */
-/* 12. Media Queries (Responsividade)                         */
+/* 16. Media Queries (Responsividade)                         */
 /* ========================================================== */
-@media (max-width: 767px) {
+@media (max-width: 850px) {
     .nav-menu {
-        display: none; /* Esconde o menu de navegação em telas pequenas (ideal seria um menu hamburguer). */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Começa fora da tela */
+        width: 60%;
+        height: 100vh;
+        background-color: rgba(18, 18, 18, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+    .nav-menu.active {
+        right: 0; /* Move para dentro da tela */
+    }
+
+    .nav-toggle {
+        display: block; /* Mostra o botão hamburguer */
     }
 
     .intro-section {
-        background-attachment: scroll; /* Remove o efeito parallax em celulares para melhor performance. */
+        background-attachment: scroll; /* Melhora performance em mobile */
     }
+}
 
+
+@media (max-width: 767px) {
     .main-grid-container {
-        grid-template-columns: 1fr; /* Força o grid a ter apenas uma coluna. */
+        grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
     
     .card-image {
         height: 180px;
+    }
+
+    .footer-container {
+        flex-direction: column;
     }
 }
